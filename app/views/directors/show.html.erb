@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<h2>The Director</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @director.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @director.user_id%>
+</p>
+
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Back', directors_path %>
+
+
+<h2>Films</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Director</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+  <% @director.films.each do |film| %>
+    <tr>
+      <td><%= film.name %></td>
+      <td><%= film.genre %></td>
+      <td><%= film.rating %></td>
+      <td><%= film.description %></td>
+      <td><%= film.director_id %></td>
+      <td><%= link_to 'Show', film %></td>
+      <td><%= link_to 'Edit', edit_film_path(film) %></td>
+      <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<a href="../films/new">Add Film</a>
+
+<h2>Add Film</h2>
+<%= form_for([@director, @director.films.build]) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :director_id %>
+    <%= form.number_field :director_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
