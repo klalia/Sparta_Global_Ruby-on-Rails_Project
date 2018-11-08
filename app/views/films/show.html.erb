@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
+
+<h2>The Film</h2><img src="../film-view.jpg" align="left" height="200px" width="200px">
+
 <p>
   <strong>Name:</strong>
   <%= @film.name %>
@@ -24,6 +28,38 @@
   <strong>Director:</strong>
   <%= @film.director_id %>
 </p>
+<hr>
+<h2>Comments</h2>
+<hr>
+  <% @film.comments.each do |comment| %>
+    <tr>
+      <div class="well">
+      <p><strong><td><%= comment.name %></td></strong>: <td><%= comment.body %></td>
+      <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
 
-<%= link_to 'Edit', edit_film_path(@film) %> |
-<%= link_to 'Back', films_path %>
+      </div>
+    </tr>
+  <% end %>
+<hr>
+<h2>Add Comment</h2>
+<%= form_for([@film, @film.comments.build]) do |f| %>
+
+  <div class="field">
+    <strong><%= f.label :name %></strong>
+    <%= f.text_field(:name, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="field">
+    <strong><%= f.label :body %></strong>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :film_id %>
+    <%= f.number_field(:film_id, {:class => 'form-control'}) %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit({:class => "btn btn-primary"}) %>
+  </div>
+<% end %>

@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Directors</h1>
-
+<br>
+<img src="cover.png" height="150px" width="135px" align="left">
 <table>
   <thead>
     <tr>
@@ -16,9 +17,9 @@
       <tr>
         <td><%= director.name %></td>
         <td><%= director.user_id %></td>
-        <td><%= link_to 'Show', director %></td>
-        <td><%= link_to 'Edit', edit_director_path(director) %></td>
-        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', director, :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_director_path(director), :class => 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Director', new_director_path %>
+<%= link_to 'New Director', new_director_path, :class => 'btn btn-primary' %>

@@ -1,21 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h2>The Director</h2>
+<%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
 
+<h2>The Director</h2><img src="../director.png" align="left" height="150px" width="150px">
+<br>
 <p>
   <strong>Name:</strong>
   <%= @director.name %>
 </p>
-
+<br>
 <p>
   <strong>User:</strong>
   <%= @director.user_id%>
 </p>
-
-<%= link_to 'Edit', edit_director_path(@director) %> |
-<%= link_to 'Back', directors_path %>
-
-
+<br>
+<hr>
 <h2>Films</h2>
 <table>
   <thead>
@@ -37,45 +36,45 @@
       <td><%= film.rating %></td>
       <td><%= film.description %></td>
       <td><%= film.director_id %></td>
-      <td><%= link_to 'Show', film %></td>
-      <td><%= link_to 'Edit', edit_film_path(film) %></td>
-      <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', film, :class => 'btn btn-default' %></td>
+      <td><%= link_to 'Edit', edit_film_path(film), :class => 'btn btn-default' %></td>
+      <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
     </tr>
   <% end %>
 </tbody>
 </table>
-
-<a href="../films/new">Add Film</a>
-
+<hr>
+<!-- <a href="../films/new">Add Film</a>
+<br> -->
 <h2>Add Film</h2>
 <%= form_for([@director, @director.films.build]) do |form| %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <strong><%= form.label :name %></strong>
+    <%= form.text_field(:name, {:class => 'form-control'}) %>
   </div>
 
   <div class="field">
-    <%= form.label :genre %>
-    <%= form.text_field :genre %>
+    <strong><%= form.label :genre %></strong>
+    <%= form.text_field(:genre, {:class => 'form-control'}) %>
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+    <strong><%= form.label :rating %></strong>
+    <%= form.number_field(:rating, {:class => 'form-control'}) %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <strong><%= form.label :description %></strong>
+    <%= form.text_area(:description, {:class => 'form-control'}) %>
   </div>
 
   <div class="field">
     <%= form.label :director_id %>
-    <%= form.number_field :director_id %>
+    <%= form.number_field(:director_id, {:class => 'form-control'}) %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit({:class => "btn btn-primary"}) %>
   </div>
 <% end %>

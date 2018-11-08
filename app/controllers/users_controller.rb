@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @directors = current_user.directors
+    @films = current_user.films
   end
 
   # GET /users/1
