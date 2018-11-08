@@ -27,7 +27,7 @@ class FilmsController < ApplicationController
   def create
     @director = Director.find(params[:director_id])
     @film = @director.films.create(film_params)
-    redirect_to director_path(@director)
+    redirect_to director_path(@director)  
   end
 
   # PATCH/PUT /films/1

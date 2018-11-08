@@ -8,12 +8,16 @@
     <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<style media="screen">
+  .header{
+    color: blue;
+  }
+</style>
   <body>
     <nav class="navbar navbar-defaultp">
    <div class="container">
      <div class="navbar-header">
-       <h1 class="navbar-brand" href="#"><%= link_to "Film Directors", home_path %></h1>
+       <h1 class="navbar-brand" href="#"><h1><p class="header">Film Directors</p></h1></h1>
      </div>
      <div id="navbar" class="collapse navbar-collapse">
        <ul class="nav navbar-nav">
