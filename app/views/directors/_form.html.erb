@@ -1,4 +1,3 @@
-<table class="table table-striped">
 <%= form_with(model: director, local: true) do |form| %>
 
   <% if director.errors.any? %>
@@ -26,4 +25,3 @@
     <%= form.submit({:class => "btn btn-primary"}) %>
   </div>
 <% end %>
-</table>
