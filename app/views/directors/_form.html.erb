@@ -1,9 +1,9 @@
+<table class="table table-striped">
 <%= form_with(model: director, local: true) do |form| %>
 
   <% if director.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
-
       <ul>
       <% director.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -26,3 +26,4 @@
     <%= form.submit({:class => "btn btn-primary"}) %>
   </div>
 <% end %>
+</table>

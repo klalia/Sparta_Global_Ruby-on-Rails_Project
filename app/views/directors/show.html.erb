@@ -8,8 +8,8 @@
 
 <%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
 
-<h2>The Director</h2><img src="../director.png" align="left" height="150px" width="150px">
-<hr><br>
+<h2>The Director</h2><hr><img src="../director.png" align="left" height="170px" width="200px">
+<br><br>
 <p>
   <strong>Name:</strong>
   <%= @director.name %>
@@ -22,7 +22,7 @@
 <br>
 <hr>
 <h2>Films</h2>
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -91,7 +91,7 @@
 
   <div class="hidden">
     <strong><%= form.label :rating %></strong>
-    <%= form.number_field(:rating, {:class => 'form-control'}) %>
+    <%= form.number_field(:rating, {:class => 'form-control'})%>
   </div>
 
   <div class="hidden">
