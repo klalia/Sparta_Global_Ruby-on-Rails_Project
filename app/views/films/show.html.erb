@@ -9,7 +9,7 @@
 <%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
 
 <h2>The Film</h2><img src="../film-view.jpg" align="left" height="200px" width="200px">
-<br>
+<hr>
 <p>
   <strong>Name:</strong>
   <%= @film.name %>
@@ -37,7 +37,6 @@
 <br>
 <hr>
 <h2>Comments</h2>
-<hr>
   <% @film.comments.each do |comment| %>
     <tr>
       <div class="well">
