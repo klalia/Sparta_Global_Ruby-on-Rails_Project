@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
+
 <%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
 
 <h2>The Film</h2><img src="../film-view.jpg" align="left" height="200px" width="200px">
-
+<br>
 <p>
   <strong>Name:</strong>
   <%= @film.name %>
@@ -24,10 +30,11 @@
   <%= @film.description %>
 </p>
 
-<p>
+<p class="hidden">
   <strong>Director:</strong>
   <%= @film.director_id %>
 </p>
+<br>
 <hr>
 <h2>Comments</h2>
 <hr>
@@ -35,7 +42,7 @@
     <tr>
       <div class="well">
       <p><strong><td><%= comment.name %></td></strong>: <td><%= comment.body %></td>
-      <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+      <td><%= link_to 'X', comment, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
 
       </div>
     </tr>
@@ -54,7 +61,7 @@
     <%= f.text_area(:body, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="hidden" class="field">
     <%= f.label :film_id %>
     <%= f.number_field(:film_id, {:class => 'form-control'}) %>
   </div>
