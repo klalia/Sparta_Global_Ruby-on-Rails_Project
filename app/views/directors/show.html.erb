@@ -1,0 +1,109 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
+
+<%= link_to 'Back to directors', directors_path, :class => 'btn btn-default' %>
+
+<h2>The Director</h2><img src="../director.png" align="left" height="150px" width="150px">
+<br>
+<p>
+  <strong>Name:</strong>
+  <%= @director.name %>
+</p>
+<br>
+<p>
+  <strong>User:</strong>
+  <%= @director.user_id%>
+</p>
+<br>
+<hr>
+<h2>Films</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Genre</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th class="hidden">Director</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+<tbody>
+  <% @director.films.each do |film| %>
+    <tr>
+      <td><%= film.name %></td>
+      <td><%= film.genre %></td>
+      <td><%= film.rating %></td>
+      <td><%= film.description %></td>
+      <td class="hidden"><%= film.director_id %></td>
+      <td><%= link_to 'Show', film, :class => 'btn btn-default' %></td>
+      <td><%= link_to 'Edit', edit_film_path(film), :class => 'btn btn-default' %></td>
+      <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+<hr>
+<!-- <a href="../films/new">Add Film</a>
+<br> -->
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+  function showHide(){
+    var checkbox = document.getElementById("chk");
+    var hiddeninputs = document.getElementsByClassName("hidden");
+    for(var i=0; i!= hiddeninputs.length; i++){
+      if(checkbox.checked){
+        hiddeninputs[i].style.display = "block";
+      }
+      else{
+        hiddeninputs[i].style.display = "none";
+      }
+    }
+  }
+</script>
+
+<%= form_for([@director, @director.films.build]) do |form| %>
+
+<input type="checkbox" name="chk" id="chk" onclick="showHide()"/>
+<label for="chk"><strong>Click box to Add Film</strong></label>
+
+<h2 class="hidden">Add Film</h2>
+  <div class="hidden">
+    <strong><%= form.label :name %></strong>
+    <%= form.text_field(:name, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="hidden">
+    <strong><%= form.label :genre %></strong>
+    <%= form.text_field(:genre, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="hidden">
+    <strong><%= form.label :rating %></strong>
+    <%= form.number_field(:rating, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="hidden">
+    <strong><%= form.label :description %></strong>
+    <%= form.text_area(:description, {:class => 'form-control'}) %>
+  </div>
+
+  <div class="hidden">
+    <%= form.label :director_id %>
+    <%= form.number_field(:director_id, {:class => 'form-control'}) %>
+  </div>
+<br>
+  <div class="hidden" class="actions">
+    <%= form.submit({:class => "btn btn-primary"}) %>
+  </div>
+<% end %>
