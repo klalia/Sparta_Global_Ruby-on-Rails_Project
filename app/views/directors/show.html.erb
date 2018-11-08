@@ -46,35 +46,58 @@
 <hr>
 <!-- <a href="../films/new">Add Film</a>
 <br> -->
-<h2>Add Film</h2>
+<style>
+  .hidden{
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+  function showHide(){
+    var checkbox = document.getElementById("chk");
+    var hiddeninputs = document.getElementsByClassName("hidden");
+    for(var i=0; i!= hiddeninputs.length; i++){
+      if(checkbox.checked){
+        hiddeninputs[i].style.display = "block";
+      }
+      else{
+        hiddeninputs[i].style.display = "none";
+      }
+    }
+  }
+</script>
+
 <%= form_for([@director, @director.films.build]) do |form| %>
 
-  <div class="field">
+<input type="checkbox" name="chk" id="chk" onclick="showHide()"/>
+<label for="chk"><strong>Click box to Add Film</strong></label>
+
+<h2 class="hidden">Add Film</h2>
+  <div class="hidden">
     <strong><%= form.label :name %></strong>
     <%= form.text_field(:name, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="hidden">
     <strong><%= form.label :genre %></strong>
     <%= form.text_field(:genre, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="hidden">
     <strong><%= form.label :rating %></strong>
     <%= form.number_field(:rating, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="hidden">
     <strong><%= form.label :description %></strong>
     <%= form.text_area(:description, {:class => 'form-control'}) %>
   </div>
 
-  <div class="field">
+  <div class="hidden">
     <%= form.label :director_id %>
     <%= form.number_field(:director_id, {:class => 'form-control'}) %>
   </div>
 <br>
-  <div class="actions">
+  <div class="hidden" class="actions">
     <%= form.submit({:class => "btn btn-primary"}) %>
   </div>
 <% end %>
