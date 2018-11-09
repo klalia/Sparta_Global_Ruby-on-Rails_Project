@@ -16,8 +16,8 @@
 </p>
 <br>
 <p>
-  <strong>User:</strong>
-  <%= @director.user_id%>
+  <strong>Created by:</strong>
+  <%= @director.user.email.split('@')[0].capitalize%>
 </p>
 <br>
 <hr>
