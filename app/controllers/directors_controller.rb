@@ -1,6 +1,5 @@
 class DirectorsController < ApplicationController
   before_action :set_director, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
 
   # GET /directors
   # GET /directors.json
@@ -26,7 +25,6 @@ class DirectorsController < ApplicationController
   # POST /directors.json
   def create
     @director = Director.new(director_params)
-
     respond_to do |format|
       if @director.save
         format.html { redirect_to @director, notice: 'Director was successfully created.' }
