@@ -18,4 +18,7 @@ This project consisted of one sprint over a 3-day period. Initially with my set 
 
 If I were to have a sprint 2, I would add an admin user who would be able to do all the functions such as delete, edit and add. Any other user would just be allowed to click show and create comments on the film. This would have made the app more secure and relatable to what it would be like to the public.
 
+The film-director app can be accessed through the following link:
+https://film-directors.herokuapp.com
+
 # ror-project-one-8
