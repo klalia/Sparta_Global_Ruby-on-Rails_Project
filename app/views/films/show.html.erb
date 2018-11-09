@@ -30,11 +30,11 @@
   <%= @film.description %>
 </p>
 
-<p class="hidden">
+<p>
   <strong>Director:</strong>
-  <%= @film.director_id %>
+  <%= @film.director.name.split('@')[0].capitalize %>
 </p>
-<br><hr>
+<hr>
 <h2>Comments</h2>
 <hr>
   <% @film.comments.each do |comment| %>

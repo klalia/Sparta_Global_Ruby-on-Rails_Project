@@ -29,7 +29,7 @@
       <th>Genre</th>
       <th>Rating</th>
       <th>Description</th>
-      <th class="hidden">Director</th>
+      <th class="hidden">Director ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -100,7 +100,7 @@
   </div>
 
   <div class="hidden">
-    <%= form.label :director_id %>
+    <strong><%= form.label :director_id %></strong> (Insert the Director ID)
     <%= form.number_field(:director_id, {:class => 'form-control'}) %>
   </div>
 <br>
