@@ -5,7 +5,6 @@
     display: none;
   }
 </style>
-
 <h1>Directors</h1>
 <hr>
 <img src="cover.png" height="170px" width="180px" align="left">
@@ -13,7 +12,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>User ID</th>
+      <th class="hidden">User ID</th>
       <th class="hidden">User</th>
       <th colspan="3"></th>
     </tr>
@@ -24,7 +23,7 @@
     <% @directors.each do |director| %>
       <tr>
         <td><%= director.name %></td>
-        <td><%= director.user_id %></td>
+        <td class="hidden"><%= director.user_id %></td>
         <td><%= link_to 'Show', director, :class => 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_director_path(director), :class => 'btn btn-secondary' %></td>
         <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
