@@ -4,11 +4,17 @@ Ruby on Rails Project (Week 7)
 For my Ruby on Rails project we were set the task to create an app linking 2 resources, where the user was no included. The app had the following requirements:
 
 •	At least 2 resources (not including user)
+
 •	Devise installed
+
 •	Validations set
+
 •	Bootstrap or any CSS framework
+
 •	Logical connection between resources
+
 •	JavaScript functionality
+
 •	Deployment to Heroku
 
 Based on these requirements I decided to create a film directors app. The app used a film and director resource, where a director had many films and a film belonged to that one director. A user was also incorporated where they had many directors and the directors belonged to one user.
