@@ -2,6 +2,7 @@
 
 Ruby on Rails Project (Week 7)
 For my Ruby on Rails project we were set the task to create an app linking 2 resources, where the user was no included. The app had the following requirements:
+
 •	At least 2 resources (not including user)
 •	Devise installed
 •	Validations set
