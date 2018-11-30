@@ -1,4 +1,4 @@
-# README
+# Ruby on Rails Project
 
 Ruby on Rails Project (Week 7)
 For my Ruby on Rails project we were set the task to create an app linking 2 resources, where the user was no included. The app had the following requirements:
@@ -28,4 +28,3 @@ If I were to have a sprint 2, I would add an admin user who would be able to do 
 The film-director app can be accessed through the following link:
 https://film-directors.herokuapp.com
 
-# ror-project-one-8
